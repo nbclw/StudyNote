@@ -1,0 +1,28 @@
+Web 通信 之 长连接、长轮询（long polling）             http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html
+DevExpress GridControl使用方法                         http://www.cnblogs.com/zeroone/p/3525423.html   
+什么是闭包(Closure)？                                  http://kb.cnblogs.com/page/111780/
+进程与线程的简单理解				       http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html
+文件和流                                               http://www.cnblogs.com/ForEvErNoME/archive/2012/09/02/2633876.html
+JS组件系列——表格组件神器：bootstrap table            http://www.cnblogs.com/landeanfen/p/4976838.html
+FFmpeg教程【转】                                       http://blog.csdn.net/chenyefei/article/details/52289731
+C#多线程编程                                           http://www.cnblogs.com/luxiaoxun/p/3280146.html
+C# 托管资源和非托管资源 			       http://blog.csdn.net/zlwzlwzlw/article/details/7918633
+SQLServer中处理每天四亿三千万记录                      http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html
+IIS 7 应用程序池自动回收关闭的解决方案                 http://blog.csdn.net/rryqsh/article/details/8156558
+4年编程整理内容                                        http://www.cnblogs.com/shootingstar/p/6397588.html
+开源的分布式部署解决方案                               http://www.cnblogs.com/doddgu/p/g_1.html
+.NET freamwork GC垃圾回收机制                          http://www.cnblogs.com/larry-th/p/6571851.html
+穿透Session 0 隔离                                     http://www.cnblogs.com/gnielee/archive/2010/04/07/session0-isolation-part1.html
+使用抽象类和接口的优解                                 http://www.cnblogs.com/Wddpct/p/6767705.html
+单点登录SSO图示和讲解                                  http://www.cnblogs.com/baibaomen/p/sso-sequence-chart.html
+日活上百万时，腾讯产品如何提前规避服务器宕机风险？     http://www.cnblogs.com/wetest/p/6859884.html
+[翻译]【目录】编写高性能 .NET 代码                     http://www.cnblogs.com/yahle/p/6530246.html
+EF查询百万级数据的性能测试                             http://www.cnblogs.com/flaming/p/7119544.html
+sqlserver表中含有大量数据时如何创建索引                http://www.cnblogs.com/jrsnd/p/3966427.html
+【人工智能】人工智能资料汇总（百度云盘）               http://blog.csdn.net/taily_duan/article/details/70889352
+游戏外挂原理解析与制作                                 http://www.cnblogs.com/lene-y/p/7096485.html
+Python实例浅谈之三Python与C/C++相互调用                https://www.cnblogs.com/apexchu/p/5015961.html
+我是怎么用跳表优化搜索引擎的？                         http://www.cnblogs.com/haolujun/p/8011776.html
+WPF水珠效果按钮组                                      https://www.cnblogs.com/tsliwei/p/8041928.html
+C#设计模式(23种设计模式)                               https://www.cnblogs.com/abcdwxc/archive/2007/10/30/942834.html
+C# 中的委托和事件                                      http://www.cnblogs.com/JimmyZhang/archive/2007/09/23/903360.html

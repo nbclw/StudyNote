@@ -1,0 +1,106 @@
+定义
+    class Test<T>
+
+    {
+
+        public T obj;
+
+        public Test(T obj)
+
+        {
+
+            this.obj = obj;
+
+        }
+     }
+public class MyGeneric < TKey, TValue>  
+{  
+     private TKey key;  
+     private TValue value;  
+ 
+     public void Method (TKey k, TValue v)  
+     {  
+	.......
+     }  
+}  
+
+
+C#泛型继承：
+
+C#除了可以单独声明泛型类型（包括类与结构）外，也可以在基类中包含泛型类型的声明。但基类如果是泛型类，它的类型要么以实例化，要么来源于子类（同样是泛型类型）声明的类型参数，看如下类型
+
+class C<U,V>
+
+class D:C<string,int>
+
+class E<U,V>:C<U,V>
+
+class F<U,V>:C<string,int>
+
+class G:C<U,V>  //非法
+
+E类型为C类型提供了U、V，也就是上面说的来源于子类
+
+F类型继承于C<string,int>，个人认为可以看成F继承一个非泛型的类
+
+G类型为非法的，因为G类型不是泛型，C是泛型，G无法给C提供泛型的实例化
+
+泛型方法的重载：
+
+public void Function1<T>(T a);
+
+public void Function1<U>(U a);
+
+这样是不能构成泛型方法的重载。因为编译器无法确定泛型类型T和U是否不同，也就无法确定这两个方法是否不同
+
+ 
+
+public void Function1<T>(int x);
+
+public void Function1(int x);
+
+这样可以构成重载
+
+ 
+
+public void Function1<T>(T t) where T:A;
+
+public void Function1<T>(T t) where T:B;
+
+这样不能构成泛型方法的重载。因为编译器无法确定约束条件中的A和B是否不同，也就无法确定这两个方法是否不同
+
+ 
+
+泛型方法重写：
+
+在重写的过程中，抽象类中的抽象方法的约束是被默认继承的。如下：
+
+abstract class Base
+
+{
+
+    public abstract T F<T,U>(T t,U u) where U:T;
+
+    public abstract T G<T>(T t) where T:IComparable;
+
+}
+
+ 
+
+class MyClass:Base
+
+{
+
+    public override X F<X,Y>(X x,Y y){...}
+
+    public override T G<T>(T t) where T:IComparable{}
+
+}
+
+对于MyClass中两个重写的方法来说
+
+F方法是合法的，约束被默认继承
+
+G方法是非法的，指定任何约束都是多余的
+
+

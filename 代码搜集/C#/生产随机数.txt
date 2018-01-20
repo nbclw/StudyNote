@@ -1,0 +1,30 @@
+
+
+Random ran=new Random();
+int RandKey=ran.Next(100,999);
+不过这样会有重复,可以给Random一个系统时间做为参数，以此产生随机数，就不会重复了
+
+
+
+
+第一种方法不指定随机种子，系统自动选取当前时前作随机种子：
+Random ra=new Random();
+第二种方法是指定一个int型的参数作为随机种子：
+int iSeed=6;
+Random ra=new Random(iSeed);
+下面我们要用到Random.Next()方法产生随机数。
+ra.Next();
+它的重载函数和其它一些方法。
+
+
+
+例子：
+
+public virtual int Next(int);
+用法：ra.next(20)
+返回一个小于所指定最大值(此处为20)的正随机数。
+
+
+public virtual int Next(int minValue, int maxValue);
+用法：ra.next(1,20)
+返回一个指定范围内(此处为1-20之间)的随机数，我们在下面的实例中会用到此函数。

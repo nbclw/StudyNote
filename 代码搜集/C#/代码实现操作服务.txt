@@ -1,0 +1,238 @@
+一、cmd命令行---进行Windows服务操作
+安装服务                          sc create 服务名 binpath= 服务路径 displayName= 服务名 start= auto obj= localsystem
+
+	   注：start=AUTO  (自动)
+	   start=DEMAND (手动)
+	   start=DISABLED   (禁用)
+卸载服务                          sc delete 服务名
+启动服务                          sc start  服务名
+停止服务                          sc start  服务名
+
+
+二、第一种：bat批处理---进行Windows服务操作
+安装、开启服务
+@echo.服务启动......  
+@echo off  
+@sc create 服务名 binPath= "C:\Users\Administrator\Desktop\win32srvdemo\win32srvdemo\Debug\win32srvdemo.exe"  
+@net start 服务名  
+@sc config 服务名 start= AUTO  
+@echo off  
+@echo.启动完毕！  
+@pause
+
+关闭服务
+@echo.服务关闭  
+@echo off  
+@net stop 服务名  
+@echo off  
+@echo.关闭结束！  
+@pause
+
+3、删除服务(删除前要关闭服务)
+@echo.服务删除  
+@echo off  
+@sc delete 服务名 
+@echo off  
+@echo.删除结束！  
+@pause
+
+
+二、第二种：bat批处理---进行Windows服务操作
+1、安装脚本Install.bat
+%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\installutil.exe "E:\wwwroot\kjsmtt\wwwroot\KJLMManagerShareOutBonus\KJLMManagerShareOutBonus.exe"
+Net Start 服务名
+sc config 服务名 start= auto
+pause
+
+2、卸载脚本Uninstall.bat
+%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\installutil.exe /u "E:\wwwroot\kjsmtt\wwwroot\KJLMManagerShareOutBonus\KJLMManagerShareOutBonus.exe"
+pause
+
+
+三、C# using System.Configuration.Install;using System.ServiceProcess;集成
+                ///  <summary>    
+                ///  获取服务安装路径    
+                ///  </summary>    
+                ///  <param  name="ServiceName"></param>    
+                ///  <returns></returns>    
+                public  static  string  GetWindowsServiceInstallPath(string  ServiceName)    
+                {    
+                        string  key  =  @"SYSTEM\CurrentControlSet\Services\"  +  ServiceName;    
+                        string  path  =  Registry.LocalMachine.OpenSubKey(key).GetValue("ImagePath").ToString();    
+                        //替换掉双引号        
+                        path  =  path.Replace("\"",  string.Empty);    
+    
+                        FileInfo  fi  =  new  FileInfo(path);    
+                        return  fi.Directory.ToString()+"\\";    
+                }    
+    
+                ///  <summary>    
+                ///  根据服务名称获取服务状态。    
+                ///  </summary>    
+                ///  <param  name="serviceName">服务名</param>    
+                ///  <returns>状态</returns>    
+                public  static  EnumServiceStatus  GetServiceStatus(string  serviceName)    
+                {    
+                        EnumServiceStatus  status=EnumServiceStatus.CannotGet;    
+                        System.ServiceProcess.ServiceController[]  scs;    
+                        scs  =  System.ServiceProcess.ServiceController.GetServices();    
+    
+                        foreach  (System.ServiceProcess.ServiceController  sc  in  scs)    
+                        {    
+                                if  (serviceName.ToUpper()  ==  sc.ServiceName.ToUpper())    
+                                {    
+                                        switch  (sc.Status)    
+                                        {    
+                                                case  System.ServiceProcess.ServiceControllerStatus.Stopped:    
+                                                        status  =  EnumServiceStatus.Stopped;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.StartPending:    
+                                                        status  =  EnumServiceStatus.StartPending;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.Running:    
+                                                        status  =  EnumServiceStatus.Running;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.StopPending:    
+                                                        status  =  EnumServiceStatus.StopPending;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.PausePending:    
+                                                        status  =  EnumServiceStatus.PausePending;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.Paused:    
+                                                        status  =  EnumServiceStatus.Paused;    
+                                                        break;    
+                                                case  System.ServiceProcess.ServiceControllerStatus.ContinuePending:    
+                                                        status  =  EnumServiceStatus.ContinuePending;    
+                                                        break;    
+                                        }    
+                                        break;    
+                                }    
+                        }    
+    
+                        return  status;    
+                }    
+                    
+                ///  <summary>    
+                ///  检查服务存在的存在性    
+                ///  </summary>    
+                ///  <param  name="  NameService  ">服务名</param>    
+                ///  <returns>存在返回  true,否则返回  false;</returns>    
+                public  static  bool  isServiceIsExisted(string  NameService)    
+                {    
+                        ServiceController[]  services  =  ServiceController.GetServices();    
+                        foreach  (ServiceController  s  in  services)    
+                        {    
+                                if  (s.ServiceName.ToLower()  ==  NameService.ToLower())    
+                                {    
+                                        return  true;    
+                                }    
+                        }    
+                        return  false;    
+                }    
+    
+              ///  <summary>    
+                ///  安装Windows服务    
+                ///  </summary>    
+                ///  <param  name="stateSaver">集合</param>    
+                ///  <param  name="filepath">程序文件路径</param>    
+                public  static  void  InstallmyService(IDictionary  stateSaver,  string  filepath)    
+                {    
+                        AssemblyInstaller  AssemblyInstaller1  =  new  AssemblyInstaller();    
+                        AssemblyInstaller1.UseNewContext  =  true;    
+                        AssemblyInstaller1.Path  =  filepath;    
+                        AssemblyInstaller1.Install(stateSaver);    
+                        AssemblyInstaller1.Commit(stateSaver);    
+                        AssemblyInstaller1.Dispose();    
+                }    
+                ///  <summary>    
+                ///  卸载Windows服务    
+                ///  </summary>    
+                ///  <param  name="filepath">程序文件路径</param>    
+                public  static  void  UnInstallmyService(string  filepath)    
+                {    
+                        AssemblyInstaller  AssemblyInstaller1  =  new  AssemblyInstaller();    
+                        AssemblyInstaller1.UseNewContext  =  true;    
+                        AssemblyInstaller1.Path  =  filepath;    
+                        AssemblyInstaller1.Uninstall(null);    
+                        AssemblyInstaller1.Dispose();    
+                }    
+    
+                ///  <summary>    
+                ///  启动服务    
+                ///  </summary>    
+                ///  <param  name="  NameService  ">服务名</param>    
+                ///  <returns>存在返回  true,否则返回  false;</returns>    
+                public  static  bool  RunService(string  NameService)    
+                {    
+                        bool  bo  =  true;    
+                        try    
+                        {    
+                                ServiceController  sc  =  new  ServiceController(NameService);    
+                                if  (sc.Status.Equals(ServiceControllerStatus.Stopped)||sc.Status.Equals(ServiceControllerStatus.StopPending))    
+                                {    
+                                        sc.Start();    
+                                }    
+                        }    
+                        catch  (Exception  ex)    
+                        {    
+                                bo  =  false;    
+                                LogAPI.WriteLog(ex.Message);    
+                        }    
+    
+                        return  bo;    
+                }    
+    
+                ///  <summary>    
+                ///  停止服务    
+                ///  </summary>    
+                ///  <param  name="  NameService  ">服务名</param>    
+                ///  <returns>存在返回  true,否则返回  false;</returns>    
+                public  static  bool  StopService(string  NameService)    
+                {    
+                        bool  bo  =  true;    
+                        try    
+                        {    
+                                ServiceController  sc  =  new  ServiceController(NameService);    
+                                if  (!sc.Status.Equals(ServiceControllerStatus.Stopped))    
+                                {    
+                                        sc.Stop();    
+                                }    
+                        }    
+                        catch  (Exception  ex)    
+                        {    
+                                bo  =  false;    
+                                LogAPI.WriteLog(ex.Message);    
+                        }    
+    
+                        return  bo;    
+                }    
+    
+                  ///  <summary>    
+                ///  获取指定服务的版本号    
+                ///  </summary>    
+                ///  <param  name="serviceName">服务名称</param>    
+                ///  <returns></returns>    
+                public  static  string  GetServiceVersion(string  serviceName)    
+                {    
+                        if  (string.IsNullOrEmpty(serviceName))    
+                        {    
+                                return  string.Empty;    
+                        }    
+                        try    
+                        {    
+                                string  path  =  GetWindowsServiceInstallPath(serviceName)  +  "\\"  +  serviceName  +  ".exe";    
+                                Assembly  assembly  =  Assembly.LoadFile(path);    
+                                AssemblyName  assemblyName  =  assembly.GetName();    
+                                Version  version  =  assemblyName.Version;    
+                                return  version.ToString();    
+                        }    
+                        catch  (Exception  ex)    
+                        {    
+                                LogAPI.WriteLog(ex.Message);    
+                                return  string.Empty;    
+                        }    
+                        //string  a  =  version.Major.ToString();    
+                        //string  b  =  version.Minor.ToString();    
+                        //string  c  =  version.Revision.ToString();    
+                        //string  d  =  version.Build.ToString();      
+                }  

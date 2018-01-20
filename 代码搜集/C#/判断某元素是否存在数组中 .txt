@@ -1,0 +1,15 @@
+法一：  
+  
+string[] s1 = new string[3] { "John", "Paul", "Mary" };  
+if (s1.Contains("John"))  
+Response.Write("fadfadfa");  
+ 
+法二：  
+  
+int[] ia = {1,2,3};  
+int id = Array.IndexOf(ia,value);  
+  
+if(id==-1)  
+不存在  
+else  
+存在 

@@ -1,0 +1,52 @@
+        static void Method()
+        {
+            Thread.Sleep(1000);
+            Console.WriteLine("执行线程");
+        }
+        static string Method1()
+        {
+            Thread.Sleep(3000);
+            Console.WriteLine("执行线程2");
+            return "线程2回执";
+        }
+
+
+1、创建Task（任务）
+ 
+ //普通Task，传入的是Action
+ //创建无返回值的异步任务
+ Task t = new Task(Method);  Task t = new Task(delegate { /*代码段*/  }); 
+ t.Start();
+ //或者
+ Task t = Task.Factory.StartNew(Method); Task t = Task.Factory.StartNew(delegate { /*代码段*/  });
+
+
+
+ //大有返回值的Task，传入的是Func
+ //创建有返回值同步任务（有返回值只能同步，不能异步；只是以string的为例，string可以换成其他数据结构）
+ Task<string> t = new Task<string>(() => Method1()); Task<string> t = new Task<string>(() => { return ""; });
+ Task<string> t = new Task<string>(new Func<string>(Method1)); Task<string> t = new Task<string>(new Func<string>(delegate { return ""; }));
+ t.Start();
+ 或者
+ Task<string> t = Task.Factory.StartNew(() => Method1()); Task<string> t = Task.Factory.StartNew(() => { return ""; });
+ Task<string> t = Task.Factory.StartNew(new Func<string>(Method1)); Task<string> t = Task.Factory.StartNew(new Func<string>(delegate { return ""; }));
+ //获取其返回值
+ string str = t.Result;
+
+
+2、等待异步Task执行完毕（各个异步任务同时进行）
+
+ t.Wait();
+ //或者
+ Task.WaitAll(t,t1,...);
+
+
+3、取消Task
+ //首先声明
+ CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+ //创建Task时
+ Task t = new Task(Method, cancelTokenSource.Token);
+ //执行
+ cancelTokenSource.Cancel();
+
+4、可控Task 关键类TaskCreationOptions

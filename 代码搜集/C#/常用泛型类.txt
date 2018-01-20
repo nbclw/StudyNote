@@ -1,0 +1,17 @@
+Collection<T>                        泛型类集合的基础
+
+Comparer<T>                          比较两个泛型对象是否相等
+
+Dictionary<TKey,TValue>              一个名/值对的泛型集合
+
+List<T>                              一个可动态改变大小的列类
+
+Queue<T>                             一个先进先出（FIFO）列表的泛型实现
+
+SorteDictionary<TKey,TValue>         一组分类的名/值对的泛型实现
+
+Stack<T>                             一个先入后出（LIFO）列表的泛型实现
+
+Linked<T>                            一个双重链表的泛型实现
+
+ReadOnCollection<T>                   一个只读集合的泛型实现

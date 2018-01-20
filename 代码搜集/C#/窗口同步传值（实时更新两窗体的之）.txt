@@ -1,0 +1,57 @@
+public partial class Form1 : Form
+     {
+         public Form1()
+         {
+             InitializeComponent();
+         }
+
+         public string passText
+         {
+             get {
+                 return textBox1.SelectedText.Text;
+             }
+         }
+
+         private void button1_Click(object sender, EventArgs e)
+         {
+             Form2 f2 = new Form2();
+             f2.Owner = this;
+             f2.Show();
+         }
+
+         private void Form1_Load(object sender, EventArgs e)
+         {
+
+         }
+
+         private void textBox1_TextChanged(object sender, EventArgs e)
+         {
+             if(this.OwnedForms.Length != 0)
+             (this.OwnedForms[0] as Form2).selectText = textBox1.Text;/*OwnedForms是一个数组 ，表示当前对象拥有的子窗体数组，同样要把通过下标得到的元素转换为Form2类型。*/
+         }
+     }
+ }
+
+ namespace WindowsApplication1
+ {
+     public partial class Form2 : Form
+     {
+         public string selectText
+         {
+             set
+             {
+                 textBox1.Text = value;   //设置一个属性，让form1操作
+             }
+         }
+
+         public Form2()
+         {
+             InitializeComponent();
+         }
+
+         private void Form2_Load(object sender, EventArgs e)
+         {
+             textBox1.Text = ((Form1)this.Owner).passText;
+         }
+     }
+ }

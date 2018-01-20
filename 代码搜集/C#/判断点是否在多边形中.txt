@@ -1,0 +1,64 @@
+int pnpoly(int nvert, float *vertx, float *verty, float testx, float testy)
+{
+  int i, j, c = 0;
+  for (i = 0, j = nvert-1; i < nvert; j = i++) {
+    if ( ((verty[i]>testy) != (verty[j]>testy)) &&
+     (testx < (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i]) )
+       c = !c;
+  }
+  return c;
+}
+参数：
+nvert: 多边形的顶点数
+vertx, verty: 顶点X坐标和Y坐标分别组成的数组
+testx, testy: 需要测试的点的X坐标和Y坐标
+
+
+
+
+
+
+
+
+
+//测过能用，上面的不知
+        public static bool IsWithIn(Point point, List<Point> list)
+        {
+            int wn = 0, j = 0; //wn 计数器 j第二个点指针
+            for (int i = 0; i < list.Count; i++)
+            {//开始循环
+                if (i == list.Count - 1)
+                    j = 0;//如果 循环到最后一点 第二个指针指向第一点
+                else
+                    j = j + 1; //如果不是 ，则找下一点
+                if (list[i].Y <= point.Y) // 如果多边形的点 小于等于 选定点的 Y 坐标
+                {
+                    if (list[j].Y > point.Y) // 如果多边形的下一点 大于于 选定点的 Y 坐标
+                    {
+                        if (isLeft(list[i], list[j], point) > 0)
+                        {
+                            wn++;
+                        }
+                    }
+                }
+                else
+                {
+                    if (list[j].Y <= point.Y)
+                    {
+                        if (isLeft(list[i], list[j], point) < 0)
+                        {
+                            wn--;
+                        }
+                    }
+                }
+            }
+            if (wn == 0)
+                return false;
+            else
+                return true;
+        }
+        private static double isLeft(Point P0, Point P1, Point P2)
+        {
+            double abc = ((P1.X - P0.X) * (P2.Y - P0.Y) - (P2.X - P0.X) * (P1.Y - P0.Y));
+            return abc;
+        }

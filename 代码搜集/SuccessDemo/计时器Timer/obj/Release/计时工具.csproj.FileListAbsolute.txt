@@ -1,0 +1,15 @@
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\App.config
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\计时工具.exe.config
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\计时工具.exe
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\计时工具.pdb
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.Form1.resources
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.Properties.Resources.resources
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.csproj.GenerateResource.Cache
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.exe.licenses
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.exe
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.pdb
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.csprojResolveAssemblyReference.cache
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\计时工具.exe.manifest
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\bin\Release\计时工具.application
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.exe.manifest
+C:\Users\CLW_Admin\Desktop\SimpleTimeOut\计时工具\obj\Release\计时工具.application

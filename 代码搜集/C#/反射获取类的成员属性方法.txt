@@ -1,0 +1,31 @@
+        class Test 
+        {
+            private string _field;
+
+            public string Field
+            {
+                get { return _field; }
+                set { _field = value; }
+            }
+
+            public void Method() { 
+            
+            }
+        }
+
+        void Type(object obj)
+        {
+            Type type = obj.GetType();//获取type
+
+            //获取所有成员和指定的成员 。比如 Test类的  _field
+            System.Reflection.FieldInfo[] fields = type.GetFields();
+            System.Reflection.FieldInfo field = type.GetField("fieldname");
+
+            //获取所有属性和指定的属性 。比如 Test类的  Field
+            System.Reflection.PropertyInfo[] pros = type.GetProperties();
+            System.Reflection.PropertyInfo pro = type.GetProperty("propertyname");
+
+            //获取所有方法和指定的方法 。比如 Test类的  Methon
+            System.Reflection.MethodInfo[] methods = type.GetMethods();
+            System.Reflection.MethodInfo method = type.GetMethod("methodname");
+        }

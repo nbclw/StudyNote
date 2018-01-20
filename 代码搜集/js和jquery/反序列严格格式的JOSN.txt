@@ -1,0 +1,6 @@
+
+标准的JOSN： 属性 与其 值 必须用  ""  包起来
+
+{"key1":"value1","key2":"value2"}
+ 
+$.parseJSON(“JOSN字符串”);

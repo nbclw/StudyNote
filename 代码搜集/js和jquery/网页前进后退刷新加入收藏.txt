@@ -1,0 +1,25 @@
+用JS实现的控制页面前进、后退、停止、刷新以及加入收藏等功能，如下代码：
+
+<a href="JavaScript:history.back(-1)">后退</a>
+ <a href="javascript:history.back(1)">前进</a>
+<a href="JavaScript:history.go(-1)">后退</a>
+ <a href="javascript:history.go(1)">前进</a>
+
+
+ <a href="javascript:window.location.reload()">刷新</a>
+ <a href="javascript:document.execCommand('stop')">停止</a>
+ <a href=about:home>返回主页</a>
+
+ 设为首页:
+ <a href=# onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://blog.sina.com.cn/huaiblog1');">设为首页</a>
+
+ 加入收藏
+ <span style="CURSOR: hand" onClick="window.external.addFavorite('http://blog.sina.com.cn/huaiblog1','Miracle')" >加入收藏</span>
+
+ 图片
+
+ 设为首页
+ <a href=# onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://blog.sina.com.cn/huaiblog1');"><img border="0" src="Images/About_2.gif" width="84" height="19" /></a>
+
+ 加入收藏
+ <a href=#><img border="0" src="images/A_2.jpg" width="150" height="39" id="shoucang" onClick="window.external.addFavorite('http://blog.sina.com.cn/huaiblog1','Miracle')" /></a>

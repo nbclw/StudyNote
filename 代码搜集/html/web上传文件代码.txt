@@ -1,0 +1,161 @@
+AJAX技术
+  1.//根据内核创建XMLHttpRequest对象
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+2.//向服务器发送请求
+xmlhttp.open("GET","ajax_info.txt",true);//方法：open(method,url,async)method：请求的类型；GET 或 POST；url：文件在服务器上的位置；async：true（异步）或 false（同步）
+//如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");//把字符串类型的参数序列化成Form Data  方法：setRequestHeader(header,value)：header: 规定头的名称；value: 规定头的值
+
+xmlhttp.send();//方法：send(string)：string：仅用于 POST 请求；
+
+3.//服务器返回的数据
+//如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText（字符串形式的响应数据。） 或 responseXML（ XML 形式的响应数据。） 属性。
+
+xmlhttp.responseText可以直接使用；
+
+xmlhttp.responseText则需要解析
+xmlDoc=xmlhttp.responseXML;
+txt="";
+x=xmlDoc.getElementsByTagName("节点");
+for (i=0;i<x.length;i++)
+  {
+  txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+  }
+txt;
+
+4.//AJAX - onreadystatechange 事件
+//当请求被发送到服务器时，我们需要执行一些基于响应的任务每当 readyState 改变时，就会触发 onreadystatechange 事件。
+//每当 readyState 改变时，就会触发 onreadystatechange 事件。
+//readyState 属性存有 XMLHttpRequest 的状态信息。
+//下面是 XMLHttpRequest 对象的三个重要的属性：
+onreadystatechange：存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+readyState：存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。（0: 请求未初始化；1: 服务器连接已建立；2: 请求已接收；3: 请求处理中；4: 请求已完成，且响应已就绪）
+status：200: "OK"；404: 未找到页面
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+
+AJAX技术
+
+
+
+HTML代码
+<input type="file" id="fileUpLoad" accept="image/png,image/gif" multiple="multiple" />
+HTML结束
+
+
+JS代码
+$('#fileUpLoad').change(function () {
+  var fd = new FormData(); //创建表单数据对象
+  var files = $('#fileUpLoad') [0].files;
+  var count = files.length;
+  //for (var index = 0; index < count; index++) {
+  //  var file = files[index];
+  //  fd.append('FilesCommunityBusiness', file); //将文件添加到表单数据中
+  //}
+
+  //根据内核创建XMLHttpRequest对象
+  var xhr;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xhr =new XMLHttpRequest();
+  }
+  else
+    {// code for IE6, IE5
+    xhr =new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xhr.upload.addEventListener('progress', uploadProgress, false); //监听上传进度
+  xhr.addEventListener('load', uploadComplete, false);//监听上传是否完成
+  //xhr.addEventListener("error", opts.uploadFailed, false);//上传失败
+
+  xhr.open('POST', '  C#上传代码    ');
+
+  xhr.send(fd);
+})
+//监听上传进度
+function uploadProgress(evt) {
+  if (evt.lengthComputable) {
+    var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+    //适当的提示
+    //$('#uploadProgress').html(percentComplete.toString() + '%');
+  }
+}
+//监听上传是否完成
+function uploadComplete(evt) {
+  var obj = $.parseJSON(evt.target.responseText);
+  //完成是否成功
+  //$('#work_filePath').val(obj[0]);
+  //$('#work_fileName').val(obj[1]);
+}
+JS结束
+
+C#代码
+[WebMethod(Description = '将文件上传')]
+publicvoid FileUpload()
+{
+  try
+  {
+    Context.Response.ContentType = 'text/plain';
+    //接收上传后的文件
+    HttpPostedFilefile = Context.Request.Files[0];
+    //获取上传的文件名
+    string fileName = file.FileName;
+    //获取文件后缀名
+    string mime = fileName.Split('.').Last();
+    //获取上传目录
+    stringfileDir = 'Files\\PhoneUpload\\';
+    //获取文件的保存路径
+    string uploadPath = HttpContext.Current.Server.MapPath('..\\');
+    //判断上传的文件是否为空
+    if (file != null)
+    {
+      //用日期设为上传的文件夹
+      string uploadDir = DateTime.Now.ToString('yyyyMMdd');
+      //用日期作为上传文件的新文件名
+      string uploadFileName = DateTime.Now.ToString('yyyyMMddHHmmssfff');
+      //获取文件保存的目标文件夹
+      string targetDir = string.Format('{0}{1}\\', fileDir, uploadDir);
+      //相对全路径
+      string targetDirPath = string.Format('{0}{1}', uploadPath, targetDir);
+      //创建文件夹，如果检查到没有本地文件夹，则创建
+      if (!Directory.Exists(targetDirPath))
+      {
+        Directory.CreateDirectory(targetDirPath);
+      }      //获取文件保存的全路径
+
+      string targetFile = string.Format('{0}{1}.{2}', targetDirPath, uploadFileName, mime);
+      //保存文件
+      file.SaveAs(targetFile);
+      List < String > list = new List < string > ();
+      //获取绝对路径
+      list.Add(string.Format('{0}{1}.{2}', targetDir, uploadFileName, mime).Replace('\\', '/'));
+      //获取文件名称
+      list.Add(fileName);
+      Context.Response.Write(JsonConvert.SerializeObject(list));
+    } 
+    else
+    {
+      Context.Response.Write('0');
+    }
+  } 
+  catch (Exception)
+  {
+    Context.Response.Write('1');
+  }
+}
+
+C#结束

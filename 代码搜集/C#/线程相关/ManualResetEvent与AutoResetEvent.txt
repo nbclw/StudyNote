@@ -1,0 +1,7 @@
+相同点：
+1、都继承自 EventWaitHandle WaitHandle
+2、用来堵塞当前线程
+
+不同：
+1、 manual的话肯定会给所有引用的线程都发送一个信号（多个线程可以共用一个ManualResetEvent，当ManualResetEvent调用Set()时，所有线程将被唤醒），
+    而auto只会随机给其中一个发送信号（只能叫醒一个）

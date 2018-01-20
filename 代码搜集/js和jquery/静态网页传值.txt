@@ -1,0 +1,52 @@
+一、JavaScript通过URL传值
+浏览器对与URL的长度是有限制的。
+/*封装
+var request =
+    {
+        QueryString: function (val) {
+            var uri = window.location.search;
+            var re = new RegExp("" + val + "=([^&]*)", "ig");
+            return ((uri.match(re))  (uri.match(re)[0].substr(val.length + 1)) : null);
+        }
+    }
+*/封装
+
+准备好的变量 = request.QueryString("id");
+
+优点:取值方便.可以跨域.
+缺点:值长度有限制
+
+
+二、JavaScript通过Cookie传值
+
+优点:可以在同源内的任意网页内访问.生命期可以设置.
+缺点:值长度有限制.
+
+
+
+
+三、JavaScript通过Window.open传值
+
+//window.open打开的窗口.
+//利用opener指向父窗口.
+var parentText = window.opener.document.all.maintext.value;
+alert(parentText);
+
+优点:取值方便.只要window.opener指向父窗口,就可以访问所有对象.不仅可以访问值,还可以访问父窗口的方法.值长度无限制.
+缺点:两窗口要存在着关系.就是利用window.open打开的窗口.不能跨域.
+
+
+
+
+四、JavaScript通过HTML5本地储存传值
+
+由于是一个新的技术，你可以通过下面的代码检测你的浏览器是否支持
+if(window.localStorage){
+ alert('This browser supports localStorage');
+}else{
+ alert('This browser does NOT support localStorage');
+}
+储存变量的值
+localStorage.name = $('input["name"="name"]').val();
+读取变量的值
+var myname =localStorage["name"];

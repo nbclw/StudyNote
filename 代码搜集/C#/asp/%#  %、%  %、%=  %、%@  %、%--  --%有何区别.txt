@@ -1,0 +1,38 @@
+
+< %=...%>< %#... %>< % %>< %@ %>
+ < %#... %>: 是在绑定控件DataBind()方法执行时被执行，用于数据绑定 
+ 如: < %# Container.DataItem("tit") %>
+
+ < %= %>: 在程序执行时被调用，可以显示后台变量值
+
+ 如: 
+
+ *.aspx中： < %= aaa %>
+
+ *.cs中: protected string aaa="姓名";
+
+ < % %>: 内联代码块里面可以在页面文件*.aspx或*.ascx文件里面嵌入后台代码
+
+ 如:
+
+ < % 
+
+ for(int i=0;i<100;i++)
+
+ {
+
+ Reaponse.Write(i.ToString());
+
+ }
+
+ %>
+ < %@ %>是在*.aspx页面前台代码导入命名空间,
+ 如: 
+ < %@ Import namespace="System.Data"%>
+ <%-----------%>前台注释 
+ 
+
+
+
+
+ 

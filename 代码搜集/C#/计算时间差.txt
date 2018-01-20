@@ -1,0 +1,22 @@
+            
+
+            DateTime b = DateTime.Now.AddMinutes(-1);
+            DateTime e = DateTime.Now;
+
+	一、
+            TimeSpan ts = e - b; //ts.Tostring() = 00:01:00.0010027;
+	二、
+            TimeSpan ts1 = new TimeSpan(b.Ticks);
+            TimeSpan ts2 = new TimeSpan(e.Ticks);
+            TimeSpan ts = ts1.Subtract(ts2).Duration(); //ts.Tostring() = 00:01:00.0010027;
+	三、
+            TimeSpan ts = TimeSpan.FromTicks(e.Ticks - b.Ticks); //ts.Tostring() = 00:01:00.0010027;
+
+	补充：TimeSpan s
+		double ss = ts.TotalSeconds; //返回相差时间的秒数，全部是 年、月、日、时、分、秒
+
+		int ss = ts.Seconds; //返回相应位置的数字，全部是 日、时、分、秒
+
+		long thicks = ts.Ticks; //返回相差时间的刻度值（不常用）
+
+		string str = ts.ToString(@"dd\天hh\时mm\分ss\秒"); //字符串格式化  \X  识别的关键，dd hh mm ss全部小写

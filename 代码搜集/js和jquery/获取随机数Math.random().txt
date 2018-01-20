@@ -1,0 +1,13 @@
+
+
+
+从x到y的随机数 Math.random()自带默认0.0至1.0之间不包括1.0
+
+
+funtion getRandom(x, y) {
+    var iChoice = x- y+ 1;
+    return Math.floor(Math.random() * iChoice + x);
+}
+
+
+

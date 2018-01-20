@@ -1,0 +1,65 @@
+
+
+客户端触发的跳转
+
+1、使用meta元信息
+<!--如下表示5秒后跳转到url指定的链接,推荐使用这种方式-->
+<meta http-equiv="refresh" content="5;url=http://my.oschina.net/ososchina/blog">
+优点：简单
+缺点：Struts Tiles中无法使用
+
+2.使用javascript中的window.location对象
+<!--这里的代码忽略了搜索引擎对于链接价值的转移，它会被当做'暂时地'重定向。-->
+<script type="text/javascript">
+//修改window.location.href
+window.location.href ='http://my.oschina.net/ososchina/blog';
+
+//替换url，注意这种方式有时并不是有效的,需要强制reload才行
+//window.location.replace('http://my.oschina.net/ososchina/blog');
+//window.location.reload(true);
+
+//修改window导航
+//window.navigate ('http://my.oschina.net/ososchina/blog') 
+</script>;
+优点：灵活，可以结合更多的其他功能
+缺点：受到不同浏览器的影响
+
+3、结合了倒数的javascript实现
+<span id="totalSecond">5</span> 
+<script language="javascript" type="text/javascript"><!--
+var second = document.getElementById('totalSecond').textContent;
+if (navigator.appName.indexOf("Explorer") > -1)//firefox不支持（firefox不支持span、div等的innerText属性）
+{
+second = document.getElementById('totalSecond').innerText;
+} else
+{
+second = document.getElementById('totalSecond').textContent;
+}
+setInterval("redirect()", 1000);
+function redirect()
+{
+if (second < 0)
+{
+location.href='http://liting6680.blog.163.com/blog/hello.html';
+} else
+{
+if (navigator.appName.indexOf("Explorer") > -1)
+{
+document.getElementById('totalSecond').innerText = second--;
+} else
+{
+document.getElementById('totalSecond').textContent = second--;
+}
+}
+}
+// --></script> 
+
+服务端触发的跳转的方式
+1、php中使用header跳转
+header('Location:http://my.oschina.net/ososchina/blog'); 
+//这里的代码忽略了搜索引擎对于链接价值的转移，它会被当做'暂时地'重定向。
+
+推荐使用下面的方式
+
+header('HTTP/1.1 301 Moved Permanently');//固定重定向
+header('Location: http://my.oschina.net/ososchina/blog');

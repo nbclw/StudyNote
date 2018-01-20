@@ -1,0 +1,57 @@
+1、头文件   .h（此乃微软自带的例子，包含变量、方法、类）
+
+// 下列 ifdef 块是创建使从 DLL 导出更简单的
+// 宏的标准方法。此 DLL 中的所有文件都是用命令行上定义的 WIN32PROJECT1_EXPORTS
+// 符号编译的。在使用此 DLL 的
+// 任何其他项目上不应定义此符号。这样，源文件中包含此文件的任何其他项目都会将
+// WIN32PROJECT1_API 函数视为是从 DLL 导入的，而此 DLL 则将用此宏定义的
+// 符号视为是被导出的。
+#ifdef WIN32PROJECT1_EXPORTS
+#define WIN32PROJECT1_API __declspec(dllexport)
+#else
+#define WIN32PROJECT1_API __declspec(dllimport)
+#endif
+
+// 此类是从 Win32Project1.dll 导出的
+class WIN32PROJECT1_API CWin32Project1 {
+public:
+	CWin32Project1(void);
+	// TODO:  在此添加您的方法。
+};
+
+extern "C" WIN32PROJECT1_API int nWin32Project1;
+
+extern "C" WIN32PROJECT1_API int fnWin32Project1(void);
+
+
+2、实现文件 .cpp
+#include "Win32Project1.h"
+
+
+// 这是导出变量的一个示例
+WIN32PROJECT1_API int nWin32Project1 = 52;
+
+// 这是导出函数的一个示例。
+WIN32PROJECT1_API int fnWin32Project1(void)
+{
+	return 42;
+}
+
+// 这是已导出类的构造函数。
+// 有关类定义的信息，请参阅 Win32Project1.h
+CWin32Project1::CWin32Project1()
+{
+	return;
+}
+
+
+3、C#调用，上述程序集的名字为  Win32Project1.dll(使用时使用相对路径，或者是绝对路径)
+        [DllImport("Win32Project1.dll")]
+        extern static int fnWin32Project1();//只能调用程序集里面的方法
+
+
+注：
+    1、WIN32PROJECT1_API 宏的名字是自定义的自定义；
+    2、可以只有这一句#define WIN32PROJECT1_API __declspec(dllexport)，意义为要导出的宏；
+    3、C#调用的时候只能调用静态方法，变量与类不支持；
+    4、C++调用再补充。。。。

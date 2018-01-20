@@ -1,0 +1,53 @@
+var XMLHttpReq;
+
+function createXMLHttpRequest() {
+    try {
+        XMLHttpReq = new ActiveXObject("Msxml2.XMLHTTP");//IE高版本创建XMLHTTP
+    
+	}
+    
+	catch (E) {
+            try {
+            	XMLHttpReq = new ActiveXObject("Microsoft.XMLHTTP");//IE低版本创建XMLHTTP
+        
+		}
+        
+	    catch (E) {
+            	XMLHttpReq = new XMLHttpRequest();//兼容非IE浏览器，直接创建XMLHTTP对象
+        
+		}
+    	}
+
+}
+
+
+data的格式 data="参数名=值&参数名=值"
+function sendAjaxRequest(url,data) {
+    createXMLHttpRequest();                                //创建XMLHttpRequest对象
+    
+
+    XMLHttpReq.onreadystatechange = processResponse; //指定响应函数
+1    
+    XMLHttpReq.addEventListener('readystatechange', processResponse, false);//指定响应函数2
+    
+
+    XMLHttpReq.open("get", url, true);
+   
+    XMLHttpReq.send(null); 
+
+    XMLHttpReq.open("POST",url); 
+    XMLHttpReq.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
+    XMLHttpReq.send(data); 
+
+}
+
+//回调函数
+
+function processResponse() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        document.getElementById("myDiv").innerHTML = XMLHttpReq.responseText;
+    }
+}
+
+
+http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp   Js Ajax学习

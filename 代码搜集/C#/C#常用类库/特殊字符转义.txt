@@ -1,0 +1,296 @@
+    public sealed class InPutParse
+    {
+        public static string ToString(Object value)
+        {
+            string i = "";
+            try
+            {
+                if (!string.IsNullOrEmpty(value.ToString()))
+                {
+                    i = Encode(value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Int32 ToInt32(Object value)
+        {
+            int i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToInt32(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToNowDateTime(Object value)
+        {
+            DateTime i = DateTime.Now;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToBeginDateTime(Object value)
+        {
+            DateTime i = Convert.ToDateTime("2000-01-01");
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToEndDateTime(Object value)
+        {
+            DateTime i = Convert.ToDateTime("3000-12-31");
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Double ToDouble(Object value)
+        {
+            Double i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDouble(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Decimal ToDecimal(Object value)
+        {
+            Decimal i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDecimal(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Boolean ToBoolean(Object value)
+        {
+            Boolean i = false;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToBoolean(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        private static string Encode(string str)
+        {
+            str = Regex.Replace(str, "select", "&sqlselect", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "update", "&sqlupdate", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "delete", "&sqldelete", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "%", "&#37", RegexOptions.IgnoreCase);
+            return str;
+        }
+    }
+
+    public sealed class OutPutParse
+    {
+        public static string ToString(Object value)
+        {
+            string i = "";
+            try
+            {
+                if (!string.IsNullOrEmpty(value.ToString()))
+                {
+                    i = Decode(value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Int32 ToInt32(Object value)
+        {
+            int i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToInt32(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToNowDateTime(Object value)
+        {
+            DateTime i = DateTime.Now;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToBeginDateTime(Object value)
+        {
+            DateTime i = Convert.ToDateTime("2000-01-01");
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static DateTime ToEndDateTime(Object value)
+        {
+            DateTime i = Convert.ToDateTime("3000-12-31");
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDateTime(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Double ToDouble(Object value)
+        {
+            Double i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDouble(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Decimal ToDecimal(Object value)
+        {
+            Decimal i = 0;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToDecimal(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        public static Boolean ToBoolean(Object value)
+        {
+            Boolean i = false;
+            try
+            {
+                if (!string.IsNullOrEmpty(ToString(value)))
+                {
+                    i = Convert.ToBoolean(value);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return i;
+        }
+        private static string Decode(string str)
+        {
+
+            str = Regex.Replace(str, "&sqlselect", "select", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "&sqlupdate", "update", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "&sqldelete", "delete", RegexOptions.IgnoreCase);
+            str = Regex.Replace(str, "&#37", "%", RegexOptions.IgnoreCase);
+            return str;
+        }
+    }
