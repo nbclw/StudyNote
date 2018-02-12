@@ -26,3 +26,5 @@ Python实例浅谈之三Python与C/C++相互调用                https://www.cnblogs.com/a
 WPF水珠效果按钮组                                      https://www.cnblogs.com/tsliwei/p/8041928.html
 C#设计模式(23种设计模式)                               https://www.cnblogs.com/abcdwxc/archive/2007/10/30/942834.html
 C# 中的委托和事件                                      http://www.cnblogs.com/JimmyZhang/archive/2007/09/23/903360.html
+浅谈SQL Server事务与锁                                 https://www.cnblogs.com/wangjiming/p/8396986.html
+C#基础拾遗系列之一：先看懂IL代码                       https://www.cnblogs.com/runningsmallguo/p/8440734.html
