@@ -28,3 +28,5 @@ C#设计模式(23种设计模式)                               https://www.cnblogs.com/a
 C# 中的委托和事件                                      http://www.cnblogs.com/JimmyZhang/archive/2007/09/23/903360.html
 浅谈SQL Server事务与锁                                 https://www.cnblogs.com/wangjiming/p/8396986.html
 C#基础拾遗系列之一：先看懂IL代码                       https://www.cnblogs.com/runningsmallguo/p/8440734.html
+我是如何用单机实现亿级规模题库去重的？                 https://www.cnblogs.com/haolujun/p/8399275.html
+.net IL 指令速查                                       http://www.cnblogs.com/flyingbirds123/archive/2011/01/29/1947626.html
