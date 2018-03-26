@@ -30,3 +30,5 @@ C# 中的委托和事件                                      http://www.cnblogs.com/Ji
 C#基础拾遗系列之一：先看懂IL代码                       https://www.cnblogs.com/runningsmallguo/p/8440734.html
 我是如何用单机实现亿级规模题库去重的？                 https://www.cnblogs.com/haolujun/p/8399275.html
 .net IL 指令速查                                       http://www.cnblogs.com/flyingbirds123/archive/2011/01/29/1947626.html
+原来你是这样的Websocket--抓包分析                      https://www.cnblogs.com/songwenjie/p/8575579.html
+十大经典排序算法最强总结                               https://www.cnblogs.com/guoyaohua/p/8600214.html
