@@ -1,34 +1,34 @@
-Web Í¨ĞÅ Ö® ³¤Á¬½Ó¡¢³¤ÂÖÑ¯£¨long polling£©             http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html
-DevExpress GridControlÊ¹ÓÃ·½·¨                         http://www.cnblogs.com/zeroone/p/3525423.html   
-Ê²Ã´ÊÇ±Õ°ü(Closure)£¿                                  http://kb.cnblogs.com/page/111780/
-½ø³ÌÓëÏß³ÌµÄ¼òµ¥Àí½â				       http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html
-ÎÄ¼şºÍÁ÷                                               http://www.cnblogs.com/ForEvErNoME/archive/2012/09/02/2633876.html
-JS×é¼şÏµÁĞ¡ª¡ª±í¸ñ×é¼şÉñÆ÷£ºbootstrap table            http://www.cnblogs.com/landeanfen/p/4976838.html
-FFmpeg½Ì³Ì¡¾×ª¡¿                                       http://blog.csdn.net/chenyefei/article/details/52289731
-C#¶àÏß³Ì±à³Ì                                           http://www.cnblogs.com/luxiaoxun/p/3280146.html
-C# ÍĞ¹Ü×ÊÔ´ºÍ·ÇÍĞ¹Ü×ÊÔ´ 			       http://blog.csdn.net/zlwzlwzlw/article/details/7918633
-SQLServerÖĞ´¦ÀíÃ¿ÌìËÄÒÚÈıÇ§Íò¼ÇÂ¼                      http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html
-IIS 7 Ó¦ÓÃ³ÌĞò³Ø×Ô¶¯»ØÊÕ¹Ø±ÕµÄ½â¾ö·½°¸                 http://blog.csdn.net/rryqsh/article/details/8156558
-4Äê±à³ÌÕûÀíÄÚÈİ                                        http://www.cnblogs.com/shootingstar/p/6397588.html
-¿ªÔ´µÄ·Ö²¼Ê½²¿Êğ½â¾ö·½°¸                               http://www.cnblogs.com/doddgu/p/g_1.html
-.NET freamwork GCÀ¬»ø»ØÊÕ»úÖÆ                          http://www.cnblogs.com/larry-th/p/6571851.html
-´©Í¸Session 0 ¸ôÀë                                     http://www.cnblogs.com/gnielee/archive/2010/04/07/session0-isolation-part1.html
-Ê¹ÓÃ³éÏóÀàºÍ½Ó¿ÚµÄÓÅ½â                                 http://www.cnblogs.com/Wddpct/p/6767705.html
-µ¥µãµÇÂ¼SSOÍ¼Ê¾ºÍ½²½â                                  http://www.cnblogs.com/baibaomen/p/sso-sequence-chart.html
-ÈÕ»îÉÏ°ÙÍòÊ±£¬ÌÚÑ¶²úÆ·ÈçºÎÌáÇ°¹æ±Ü·şÎñÆ÷å´»ú·çÏÕ£¿     http://www.cnblogs.com/wetest/p/6859884.html
-[·­Òë]¡¾Ä¿Â¼¡¿±àĞ´¸ßĞÔÄÜ .NET ´úÂë                     http://www.cnblogs.com/yahle/p/6530246.html
-EF²éÑ¯°ÙÍò¼¶Êı¾İµÄĞÔÄÜ²âÊÔ                             http://www.cnblogs.com/flaming/p/7119544.html
-sqlserver±íÖĞº¬ÓĞ´óÁ¿Êı¾İÊ±ÈçºÎ´´½¨Ë÷Òı                http://www.cnblogs.com/jrsnd/p/3966427.html
-¡¾ÈË¹¤ÖÇÄÜ¡¿ÈË¹¤ÖÇÄÜ×ÊÁÏ»ã×Ü£¨°Ù¶ÈÔÆÅÌ£©               http://blog.csdn.net/taily_duan/article/details/70889352
-ÓÎÏ·Íâ¹ÒÔ­Àí½âÎöÓëÖÆ×÷                                 http://www.cnblogs.com/lene-y/p/7096485.html
-PythonÊµÀıÇ³Ì¸Ö®ÈıPythonÓëC/C++Ïà»¥µ÷ÓÃ                https://www.cnblogs.com/apexchu/p/5015961.html
-ÎÒÊÇÔõÃ´ÓÃÌø±íÓÅ»¯ËÑË÷ÒıÇæµÄ£¿                         http://www.cnblogs.com/haolujun/p/8011776.html
-WPFË®ÖéĞ§¹û°´Å¥×é                                      https://www.cnblogs.com/tsliwei/p/8041928.html
-C#Éè¼ÆÄ£Ê½(23ÖÖÉè¼ÆÄ£Ê½)                               https://www.cnblogs.com/abcdwxc/archive/2007/10/30/942834.html
-C# ÖĞµÄÎ¯ÍĞºÍÊÂ¼ş                                      http://www.cnblogs.com/JimmyZhang/archive/2007/09/23/903360.html
-Ç³Ì¸SQL ServerÊÂÎñÓëËø                                 https://www.cnblogs.com/wangjiming/p/8396986.html
-C#»ù´¡Ê°ÒÅÏµÁĞÖ®Ò»£ºÏÈ¿´¶®IL´úÂë                       https://www.cnblogs.com/runningsmallguo/p/8440734.html
-ÎÒÊÇÈçºÎÓÃµ¥»úÊµÏÖÒÚ¼¶¹æÄ£Ìâ¿âÈ¥ÖØµÄ£¿                 https://www.cnblogs.com/haolujun/p/8399275.html
-.net IL Ö¸ÁîËÙ²é                                       http://www.cnblogs.com/flyingbirds123/archive/2011/01/29/1947626.html
-Ô­À´ÄãÊÇÕâÑùµÄWebsocket--×¥°ü·ÖÎö                      https://www.cnblogs.com/songwenjie/p/8575579.html
-Ê®´ó¾­µäÅÅĞòËã·¨×îÇ¿×Ü½á                               https://www.cnblogs.com/guoyaohua/p/8600214.html
+ï»¿Web é€šä¿¡ ä¹‹ é•¿è¿æ¥ã€é•¿è½®è¯¢ï¼ˆlong pollingï¼‰             http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html
+DevExpress GridControlä½¿ç”¨æ–¹æ³•                         http://www.cnblogs.com/zeroone/p/3525423.html   
+ä»€ä¹ˆæ˜¯é—­åŒ…(Closure)ï¼Ÿ                                  http://kb.cnblogs.com/page/111780/
+è¿›ç¨‹ä¸çº¿ç¨‹çš„ç®€å•ç†è§£				       http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html
+æ–‡ä»¶å’Œæµ                                               http://www.cnblogs.com/ForEvErNoME/archive/2012/09/02/2633876.html
+JSç»„ä»¶ç³»åˆ—â€”â€”è¡¨æ ¼ç»„ä»¶ç¥å™¨ï¼šbootstrap table            http://www.cnblogs.com/landeanfen/p/4976838.html
+FFmpegæ•™ç¨‹ã€è½¬ã€‘                                       http://blog.csdn.net/chenyefei/article/details/52289731
+C#å¤šçº¿ç¨‹ç¼–ç¨‹                                           http://www.cnblogs.com/luxiaoxun/p/3280146.html
+C# æ‰˜ç®¡èµ„æºå’Œéæ‰˜ç®¡èµ„æº 			       http://blog.csdn.net/zlwzlwzlw/article/details/7918633
+SQLServerä¸­å¤„ç†æ¯å¤©å››äº¿ä¸‰åƒä¸‡è®°å½•                      http://www.cnblogs.com/marvin/p/HowCanIHandleBigDataBySQLServer.html
+IIS 7 åº”ç”¨ç¨‹åºæ± è‡ªåŠ¨å›æ”¶å…³é—­çš„è§£å†³æ–¹æ¡ˆ                 http://blog.csdn.net/rryqsh/article/details/8156558
+4å¹´ç¼–ç¨‹æ•´ç†å†…å®¹                                        http://www.cnblogs.com/shootingstar/p/6397588.html
+å¼€æºçš„åˆ†å¸ƒå¼éƒ¨ç½²è§£å†³æ–¹æ¡ˆ                               http://www.cnblogs.com/doddgu/p/g_1.html
+.NET freamwork GCåƒåœ¾å›æ”¶æœºåˆ¶                          http://www.cnblogs.com/larry-th/p/6571851.html
+ç©¿é€Session 0 éš”ç¦»                                     http://www.cnblogs.com/gnielee/archive/2010/04/07/session0-isolation-part1.html
+ä½¿ç”¨æŠ½è±¡ç±»å’Œæ¥å£çš„ä¼˜è§£                                 http://www.cnblogs.com/Wddpct/p/6767705.html
+å•ç‚¹ç™»å½•SSOå›¾ç¤ºå’Œè®²è§£                                  http://www.cnblogs.com/baibaomen/p/sso-sequence-chart.html
+æ—¥æ´»ä¸Šç™¾ä¸‡æ—¶ï¼Œè…¾è®¯äº§å“å¦‚ä½•æå‰è§„é¿æœåŠ¡å™¨å®•æœºé£é™©ï¼Ÿ     http://www.cnblogs.com/wetest/p/6859884.html
+[ç¿»è¯‘]ã€ç›®å½•ã€‘ç¼–å†™é«˜æ€§èƒ½ .NET ä»£ç                      http://www.cnblogs.com/yahle/p/6530246.html
+EFæŸ¥è¯¢ç™¾ä¸‡çº§æ•°æ®çš„æ€§èƒ½æµ‹è¯•                             http://www.cnblogs.com/flaming/p/7119544.html
+sqlserverè¡¨ä¸­å«æœ‰å¤§é‡æ•°æ®æ—¶å¦‚ä½•åˆ›å»ºç´¢å¼•                http://www.cnblogs.com/jrsnd/p/3966427.html
+ã€äººå·¥æ™ºèƒ½ã€‘äººå·¥æ™ºèƒ½èµ„æ–™æ±‡æ€»ï¼ˆç™¾åº¦äº‘ç›˜ï¼‰               http://blog.csdn.net/taily_duan/article/details/70889352
+æ¸¸æˆå¤–æŒ‚åŸç†è§£æä¸åˆ¶ä½œ                                 http://www.cnblogs.com/lene-y/p/7096485.html
+Pythonå®ä¾‹æµ…è°ˆä¹‹ä¸‰Pythonä¸C/C++ç›¸äº’è°ƒç”¨                https://www.cnblogs.com/apexchu/p/5015961.html
+æˆ‘æ˜¯æ€ä¹ˆç”¨è·³è¡¨ä¼˜åŒ–æœç´¢å¼•æ“çš„ï¼Ÿ                         http://www.cnblogs.com/haolujun/p/8011776.html
+WPFæ°´ç æ•ˆæœæŒ‰é’®ç»„                                      https://www.cnblogs.com/tsliwei/p/8041928.html
+C#è®¾è®¡æ¨¡å¼(23ç§è®¾è®¡æ¨¡å¼)                               https://www.cnblogs.com/abcdwxc/archive/2007/10/30/942834.html
+C# ä¸­çš„å§”æ‰˜å’Œäº‹ä»¶                                      http://www.cnblogs.com/JimmyZhang/archive/2007/09/23/903360.html
+æµ…è°ˆSQL Serveräº‹åŠ¡ä¸é”                                 https://www.cnblogs.com/wangjiming/p/8396986.html
+C#åŸºç¡€æ‹¾é—ç³»åˆ—ä¹‹ä¸€ï¼šå…ˆçœ‹æ‡‚ILä»£ç                        https://www.cnblogs.com/runningsmallguo/p/8440734.html
+æˆ‘æ˜¯å¦‚ä½•ç”¨å•æœºå®ç°äº¿çº§è§„æ¨¡é¢˜åº“å»é‡çš„ï¼Ÿ                 https://www.cnblogs.com/haolujun/p/8399275.html
+.net IL æŒ‡ä»¤é€ŸæŸ¥                                       http://www.cnblogs.com/flyingbirds123/archive/2011/01/29/1947626.html
+åŸæ¥ä½ æ˜¯è¿™æ ·çš„Websocket--æŠ“åŒ…åˆ†æ                      https://www.cnblogs.com/songwenjie/p/8575579.html
+åå¤§ç»å…¸æ’åºç®—æ³•æœ€å¼ºæ€»ç»“                               https://www.cnblogs.com/guoyaohua/p/8600214.html
