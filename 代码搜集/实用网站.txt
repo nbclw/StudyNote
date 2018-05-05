@@ -33,3 +33,4 @@ C#基础拾遗系列之一：先看懂IL代码                       https://www
 原来你是这样的Websocket--抓包分析                      https://www.cnblogs.com/songwenjie/p/8575579.html
 十大经典排序算法最强总结                               https://www.cnblogs.com/guoyaohua/p/8600214.html
 .net环境下跨进程、高频率读写数据                       https://www.cnblogs.com/lanxiaoke/p/8971301.html
+C#高级知识点&(ABP框架理论学习高级篇)——白金版                 www.cnblogs.com/farb/p/ABPAdvancedTheoryContent.html#masteringEF
