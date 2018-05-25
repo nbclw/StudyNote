@@ -1,4 +1,4 @@
 SELECT T.*
-  FROM (SELECT A.* row_number() OVER(PARTITION BY A.Column,A.Column order by A.Column) AS GROUP_IDX
+  FROM (SELECT A.*,row_number() OVER(PARTITION BY A.Column,A.Column order by A.Column) AS GROUP_IDX
           FROM Table A) T
  WHERE GROUP_IDX = 1
