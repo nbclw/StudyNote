@@ -1,0 +1,4 @@
+
+DataTable dt = new DataTable();
+DataTable dt = dt.ToTable(true,"列1","列2"...);//列名是需要显示出来的列，不在里面的列不会显示
+DataView dw = dt.DefaultView;
