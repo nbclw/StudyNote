@@ -1,0 +1,17 @@
+方法一：
+
+头文件(.h)加入
+#pragma once
+
+方法二：
+
+使用宏定义
+头文件(.h)加入
+#ifndef _CLASS_H_
+#define _CLASS_H_
+
+//定义类
+
+#endif // !_CLASS_H_
+
+_CLASS_H_不同的类有不同的名称
