@@ -1,0 +1,6 @@
+有可能是因为电脑存在git账户导致，可以从控制面板-用户账号-凭据管理器 中删除凭据，这样在执行提交、同步时重新输入
+
+
+若还是不行，则参照下面博客处理 git config --system --unset credential.helper
+https://www.cnblogs.com/VAllen/p/http-basic-access-denied-fatal-authentication-failed.html
+https://stackoverflow.com/questions/44514728/http-basic-access-denied-fatal-authentication-failed

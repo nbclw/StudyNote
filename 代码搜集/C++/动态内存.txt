@@ -1,0 +1,41 @@
+内存区域分为：
+data area：全局变量、静态变量、常量
+    全局对象：在main之前创建，在main退出后被销毁
+      Bss段：存放没有初始化或者初始化为零的全局变量；虽说大多数操作系统在加载程序时会把Bss全局变量清零，为了程序的可移植性，最好手动吧全局变量初始化为0。
+      Data段：存放初始化为非零的全局变量。
+
+    静态变量：在进入作用域中被初始化（但是程序开始时内存已经分配好），在类成员间共享数据。
+
+    常量：
+      rodata段：常量数据区；常量不一定放在此区，有些立即数直接和指令编码放在一起，放在code area；字符串常量在rodata段，编译器会去重，保证只有一个副本；加const修饰的全局变量也放在rodata段中。
+
+code area：所有成员函数和非成员函数代码
+stack area：函数运行时，局部变量、函数参数、返回数据、返回地址，就是栈
+heap area：动态内存分配区（malloc/new申请的内存块），就是堆
+
+
+
+C：
+需要引用头文件  <stdlib.h>（可能？？）
+malloc/free  函数，注意是函数
+
+class *c = (class *)malloc(sizeof(class));
+memset(c, 0, sizeof(class))//清零
+free(c);
+c = NULL;
+
+C++：
+new/delete  运算符，是运算符（运算符可以重载）
+
+class *c = new class();//class *c = new class;
+delete c;
+c = NULL;
+
+new[]/delete[]  数组
+
+class *cArr = new class[size];//实际会调用size次构造函数，同样的delete[]会调用size次析构函数
+//若存在带参数的构造函数
+//class *cArr = new class[size]{{param1,param2, ...},{}...}
+//
+delete[] cArr;
+cArr = NULL;

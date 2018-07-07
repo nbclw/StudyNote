@@ -1,0 +1,5 @@
+1¡¢Ïß³ÌÐÝÃß
+#include <thread>
+
+std::chrono::milliseconds dura(2000);
+std::this_thread::sleep_for(dura);
