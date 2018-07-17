@@ -1,0 +1,433 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+using System.IO;
+using System.Reflection;
+using System.Collections;
+using System.Data;
+using NPOI.SS.UserModel;
+
+/// <summary>
+/// Summary description for OfficeHelper
+/// </summary>
+public class OfficeHelper
+{
+    DownHelper downHelper = null;
+    public OfficeHelper()
+    {
+        downHelper = new DownHelper();
+    }
+
+
+    /// <summary>
+    /// 从excle导入到数据集，excle中的工作表对应dataset中的table，工作表名和列名分别对应table中的表名和列名
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns></returns>
+    public DataSet ExcelToDataSet(string path)
+    {
+        DataSet ds = new DataSet();
+        IWorkbook wb = WorkbookFactory.Create(path);
+        for (int sheetIndex = 0; sheetIndex < wb.Count; sheetIndex++)
+        {
+            ISheet sheet = wb.GetSheetAt(sheetIndex);
+            DataTable dt = new DataTable(sheet.SheetName);
+
+            //添加列
+            int columnCount = sheet.GetRow(0).PhysicalNumberOfCells;
+            for (int i = 0; i < columnCount; i++)
+                dt.Columns.Add(sheet.GetRow(0).GetCell(i).StringCellValue);
+
+            //添加行,从索引为1的行开始
+            int rowsCount = sheet.PhysicalNumberOfRows;
+            for (int i = 1; i < rowsCount; i++)
+            {
+                DataRow dr = dt.NewRow();
+                for (int j = 0; j < columnCount; j++)
+                    dr.SetField(j, sheet.GetRow(i).GetCell(j).StringCellValue);
+                dt.Rows.Add(dr);
+            }
+            ds.Tables.Add(dt);
+        }
+        return ds;
+    }
+
+    /// <summary>
+    /// 将数据集中的数据导入到excel中，多个table对应的导入到excel对应多个工作表
+    /// </summary>
+    /// <param name="ds">要导出到excle中的数据集，数据集中表名和字段名在excel中对应工作表名和标题名称</param>
+    /// <param name="fileName">保存的文件名，后缀名为.xls或.xlsx</param>
+    public void DataSetToExcel(DataSet ds, string fileName)
+    {
+        if (ds != null)
+        {
+            IWorkbook wb = CreateSheet(fileName);
+            foreach (DataTable dt in ds.Tables)
+            {
+                ImportToWorkbook(dt, ref wb);
+            }
+
+            downHelper.DownloadByOutputStreamBlock(
+                new MemoryStream(ToByte(wb)), fileName);
+        }
+    }
+
+    /// <summary>
+    /// 将数据导入到excel中
+    /// </summary>
+    /// <param name="dt">要导出到excle中的数据表，表名和字段名在excel中对应工作表名和标题名称</param>
+    /// <param name="fileName">保存的文件名，后缀名为.xls或.xlsx</param>
+    public void DataTableToExcel(DataTable dt, string fileName)
+    {
+        IWorkbook wb = CreateSheet(fileName);
+        ImportToWorkbook(dt, ref wb);
+        downHelper.DownloadByOutputStreamBlock(
+            new MemoryStream(ToByte(wb)), fileName);
+    }
+
+
+    private void ImportToWorkbook(DataTable dt, ref IWorkbook wb)
+    {
+        string sheetName = dt.TableName ?? "Sheet1";
+        //创建工作表
+        ISheet sheet = wb.CreateSheet(sheetName);
+        //添加标题
+        IRow titleRow = sheet.CreateRow(0);
+        SetRow(titleRow,
+            GetCloumnNames(dt),
+            GetCellStyle(sheet.Workbook, FontBoldWeight.Bold));
+
+        //添加数据行
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            IRow dataRow = sheet.CreateRow(i + 1);
+            SetRow(
+                dataRow,
+                GetRowValues(dt.Rows[i]),
+                GetCellStyle(sheet.Workbook));
+        }
+
+        //设置表格自适应宽度
+        AutoSizeColumn(sheet);
+    }
+
+    private byte[] ToByte(IWorkbook wb)
+    {
+        using (MemoryStream ms = new MemoryStream())
+        {
+            //XSSFWorkbook即读取.xlsx文件返回的MemoryStream是关闭
+            //但是可以ToArray(),这是NPOI的bug
+            wb.Write(ms);
+            return ms.ToArray();
+        }
+    }
+
+    private IWorkbook CreateSheet(string path)
+    {
+        IWorkbook wb = new NPOI.HSSF.UserModel.HSSFWorkbook(); ;
+        string extension = System.IO.Path.GetExtension(path).ToLower();
+        if (extension == ".xls")
+            wb = new NPOI.HSSF.UserModel.HSSFWorkbook();
+        else if (extension == ".xlsx")
+            wb = new NPOI.XSSF.UserModel.XSSFWorkbook();
+
+        return wb;
+    }
+
+    private int GetWidth(DataTable dt, int columnIndex)
+    {
+        IList<int> lengths = new List<int>();
+        foreach (DataRow dr in dt.Rows)
+            lengths.Add(Convert.ToString(dr[columnIndex]).Length * 256);
+        return lengths.Max();
+    }
+
+    private IList<string> GetRowValues(DataRow dr)
+    {
+        List<string> rowValues = new List<string>();
+
+        for (int i = 0; i < dr.Table.Columns.Count; i++)
+            rowValues.Add(Convert.ToString(dr[i]));
+
+        return rowValues;
+    }
+
+    private IList<string> GetCloumnNames(DataTable dt)
+    {
+        List<string> columnNames = new List<string>();
+
+        foreach (DataColumn dc in dt.Columns)
+            columnNames.Add(dc.ColumnName);
+
+        return columnNames;
+    }
+
+    private void SetRow(IRow row, IList<string> values)
+    {
+        SetRow(row, values, null);
+    }
+
+    private void SetRow(IRow row, IList<string> values, ICellStyle cellStyle)
+    {
+        for (int i = 0; i < values.Count; i++)
+        {
+            ICell cell = row.CreateCell(i);
+            cell.SetCellValue(values[i]);
+            if (cellStyle != null)
+                cell.CellStyle = cellStyle;
+        }
+    }
+
+    private ICellStyle GetCellStyle(IWorkbook wb)
+    {
+        return GetCellStyle(wb, FontBoldWeight.None);
+    }
+
+    private ICellStyle GetCellStyle(IWorkbook wb, FontBoldWeight boldweight)
+    {
+        ICellStyle cellStyle = wb.CreateCellStyle();
+
+        //字体样式
+        IFont font = wb.CreateFont();
+        font.FontHeightInPoints = 10;
+        font.FontName = "微软雅黑";
+        font.Color = (short)FontColor.Normal;
+        font.Boldweight = (short)boldweight;
+
+        cellStyle.SetFont(font);
+
+        //对齐方式
+        cellStyle.Alignment = HorizontalAlignment.Center;
+        cellStyle.VerticalAlignment = VerticalAlignment.Center;
+
+        //边框样式
+        cellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
+        cellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
+        cellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
+        cellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
+
+        //设置背景色
+        cellStyle.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.White.Index;
+        cellStyle.FillPattern = FillPattern.SolidForeground;
+
+
+        //是否自动换行
+        cellStyle.WrapText = false;
+
+        //缩进
+        cellStyle.Indention = 0;
+
+        return cellStyle;
+    }
+
+    private void AutoSizeColumn(ISheet sheet)
+    {
+        //获取当前列的宽度，然后对比本列的长度，取最大值
+        for (int columnNum = 0; columnNum <= sheet.PhysicalNumberOfRows; columnNum++)
+            AutoSizeColumn(sheet, columnNum);
+    }
+
+    private void AutoSizeColumn(ISheet sheet, int columnNum)
+    {
+        int columnWidth = sheet.GetColumnWidth(columnNum) / 256;
+        for (int rowNum = 1; rowNum <= sheet.LastRowNum; rowNum++)
+        {
+            IRow currentRow = sheet.GetRow(rowNum) == null ?
+                sheet.CreateRow(rowNum) : sheet.GetRow(rowNum);
+            if (currentRow.GetCell(columnNum) != null)
+            {
+                ICell currentCell = currentRow.GetCell(columnNum);
+                int length = System.Text.Encoding.Default.GetBytes(currentCell.ToString()).Length;
+                if (columnWidth < length)
+                    columnWidth = length;
+            }
+        }
+        sheet.SetColumnWidth(columnNum, columnWidth * 256);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+using System.IO;
+
+/// <summary>
+/// 文件下载有以下四种方式, 大文件下载的处理方法：将文件分块下载。
+/// Response.OutputStream.Write
+/// Response.TransmitFile
+/// Response.WriteFile
+/// Response.BinaryWrite
+/// </summary>
+public class DownHelper
+{
+    HttpResponse Response = null;
+    public DownHelper()
+    {
+        Response = HttpContext.Current.Response;
+    }
+
+    public void DownloadByOutputStreamBlock(System.IO.Stream stream, string fileName)
+    {
+        using (stream)
+        {
+            //将流的位置设置到开始位置。
+            stream.Position = 0;
+            //块大小
+            long ChunkSize = 102400;
+            //建立100k的缓冲区
+            byte[] buffer = new byte[ChunkSize];
+            //已读字节数
+            long dataLengthToRead = stream.Length;
+
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition",
+                string.Format("attachment; filename={0}", HttpUtility.UrlPathEncode(fileName)));
+
+            while (dataLengthToRead > 0 && Response.IsClientConnected)
+            {
+                int lengthRead = stream.Read(buffer, 0, Convert.ToInt32(ChunkSize));//读取的大小
+                Response.OutputStream.Write(buffer, 0, lengthRead);
+                Response.Flush();
+                Response.Clear();
+                dataLengthToRead -= lengthRead;
+            }
+            Response.Close();
+        }
+    }
+
+    public void DownloadByTransmitFile(string filePath, string fielName)
+    {
+        FileInfo info = new FileInfo(filePath);
+        long fileSize = info.Length;
+        Response.Clear();
+        Response.ContentType = "application/x-zip-compressed";
+        Response.AddHeader("Content-Disposition",
+            string.Format("attachment;filename={0}", HttpUtility.UrlPathEncode(fielName)));
+        //不指明Content-Length用Flush的话不会显示下载进度  
+        Response.AddHeader("Content-Length", fileSize.ToString());
+        Response.TransmitFile(filePath, 0, fileSize);
+        Response.Flush();
+        Response.Close();
+    }
+
+    public void DownloadByWriteFile(string filePath, string fileName)
+    {
+        FileInfo info = new FileInfo(filePath);
+        long fileSize = info.Length;
+        Response.Clear();
+        Response.ContentType = "application/octet-stream";
+        Response.AddHeader("Content-Disposition",
+            string.Format("attachment;filename={0}", HttpUtility.UrlPathEncode(fileName)));
+
+        //指定文件大小  
+        Response.AddHeader("Content-Length", fileSize.ToString());
+        Response.WriteFile(filePath, 0, fileSize);
+        Response.Flush();
+        Response.Close();
+    }
+
+    public void DownloadByOutputStreamBlock(string filePath, string fileName)
+    {
+        using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            //指定块大小  
+            long chunkSize = 102400;
+            //建立一个100K的缓冲区  
+            byte[] buffer = new byte[chunkSize];
+            //已读的字节数  
+            long dataToRead = stream.Length;
+
+            //添加Http头  
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition",
+                string.Format("attachment;filename={0}", HttpUtility.UrlPathEncode(fileName)));
+            Response.AddHeader("Content-Length", dataToRead.ToString());
+
+            while (dataToRead > 0 && Response.IsClientConnected)
+            {
+                int length = stream.Read(buffer, 0, Convert.ToInt32(chunkSize));
+                Response.OutputStream.Write(buffer, 0, length);
+                Response.Flush();
+                Response.Clear();
+                dataToRead -= length;
+            }
+            Response.Close();
+        }
+    }
+
+    public void DownloadByBinary(string filePath, string fileName)
+    {
+        using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            //指定块大小  
+            long chunkSize = 102400;
+            //建立一个100K的缓冲区  
+            byte[] bytes = new byte[chunkSize];
+            //已读的字节数  
+            long dataToRead = stream.Length;
+
+            //添加Http头  
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition",
+                string.Format("attachment;filename={0}", HttpUtility.UrlPathEncode(fileName)));
+
+            Response.AddHeader("Content-Length", bytes.Length.ToString());
+            Response.BinaryWrite(bytes);
+            Response.Flush();
+            Response.Close();
+        }
+    }
+
+    public void DownloadByBinaryBlock(string filePath, string fileName)
+    {
+        using (FileStream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+            //指定块大小  
+            long chunkSize = 102400;
+            //建立一个100K的缓冲区  
+            byte[] buffer = new byte[chunkSize];
+            //已读的字节数  
+            long dataToRead = stream.Length;
+
+            //添加Http头  
+            Response.ContentType = "application/octet-stream";
+            Response.AddHeader("Content-Disposition",
+                string.Format("attachment;filename={0}", HttpUtility.UrlPathEncode(fileName)));
+            Response.AddHeader("Content-Length", dataToRead.ToString());
+
+            while (dataToRead > 0 && Response.IsClientConnected)
+            {
+                int length = stream.Read(buffer, 0, Convert.ToInt32(chunkSize));
+                Response.BinaryWrite(buffer);
+                Response.Flush();
+                Response.Clear();
+
+                dataToRead -= length;
+            }
+            Response.Close();
+        }
+    }
+}

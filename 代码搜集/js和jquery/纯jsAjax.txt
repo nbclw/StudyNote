@@ -26,8 +26,8 @@ function sendAjaxRequest(url,data) {
     createXMLHttpRequest();                                //创建XMLHttpRequest对象
     
 
-    XMLHttpReq.onreadystatechange = processResponse; //指定响应函数
-1    
+    XMLHttpReq.onreadystatechange = processResponse; //指定响应函数1
+
     XMLHttpReq.addEventListener('readystatechange', processResponse, false);//指定响应函数2
     
 
@@ -43,7 +43,7 @@ function sendAjaxRequest(url,data) {
 
 //回调函数
 
-function processResponse() {
+function processResponse(event) {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         document.getElementById("myDiv").innerHTML = XMLHttpReq.responseText;
     }
