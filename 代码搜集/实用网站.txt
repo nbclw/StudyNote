@@ -36,3 +36,5 @@ C#基础拾遗系列之一：先看懂IL代码                       https://www
 C#高级知识点&(ABP框架理论学习高级篇)——白金版         https://www.cnblogs.com/farb/p/ABPAdvancedTheoryContent.html#masteringEF
 面对海量请求，缓存设计还应该考虑哪些问题？             https://www.cnblogs.com/chanshuyi/p/how_to_deal_with_massive_request_in_redis.html
 使用NPOI实现excel的导入导出                            https://www.cnblogs.com/guohu/archive/2012/09/18/2691073.html
+微信小游戏开发文档-小游戏开发快速上手入门基础教程      https://www.w3cschool.cn/wxagame/wxagame-a4z62jrn.html
+LayaAir功能介绍                                        https://ldc.layabox.com/doc/?nav=zh-js-0-3-0
