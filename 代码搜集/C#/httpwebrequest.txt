@@ -1,0 +1,33 @@
+            Encoding encoding = Encoding.UTF8;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST"; request.Accept = "text/html, application/xhtml+xml, */*";
+            request.ContentType = "application/json";
+            StringBuilder buffer = new StringBuilder();
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            if (!(parameters == null || parameters.Count == 0))
+            {
+                int i = 0;
+                foreach (string key in parameters.Keys)
+                {
+                    if (i > 0)
+                    {
+                        buffer.AppendFormat("&{0}={1}", key, parameters[key]);
+                    }
+                    else
+                    {
+                        buffer.AppendFormat("{0}={1}", key, parameters[key]);
+                    }
+                    i++;
+                }
+            }
+
+            byte[] data = encoding.GetBytes(buffer.ToString());
+            request.ContentLength = data.Length;
+
+            request.GetRequestStream().Write(data, 0, data.Length);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            using (Stream s = response.GetResponseStream())
+            {
+                StreamReader reader = new StreamReader(s, Encoding.UTF8);
+            }

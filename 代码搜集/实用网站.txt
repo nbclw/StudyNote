@@ -39,3 +39,4 @@ C#高级知识点&(ABP框架理论学习高级篇)——白金版         https:
 微信小游戏开发文档-小游戏开发快速上手入门基础教程      https://www.w3cschool.cn/wxagame/wxagame-a4z62jrn.html
 LayaAir功能介绍                                        https://ldc.layabox.com/doc/?nav=zh-js-0-3-0
 程序员算法时间空间复杂度速查表                         https://www.cnblogs.com/OctoptusLian/p/8643912.html
+设计一个百万级的消息推送系统                           https://www.cnblogs.com/crossoverJie/p/9696674.html
