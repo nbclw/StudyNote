@@ -14,3 +14,13 @@ D:\MyFile\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.Prope
 D:\MyFile\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.csproj.GenerateResource.Cache
 D:\MyFile\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.exe
 D:\MyFile\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.pdb
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\bin\Debug\MouseAutoClick.exe.config
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\bin\Debug\MouseAutoClick.exe
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\bin\Debug\MouseAutoClick.pdb
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.csprojAssemblyReference.cache
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.Form1.resources
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.Properties.Resources.resources
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.csproj.GenerateResource.cache
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.csproj.CoreCompileInputs.cache
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.exe
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\MouseAutoClick\obj\Debug\MouseAutoClick.pdb

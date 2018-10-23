@@ -28,3 +28,8 @@ D:\MyFiles\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.exe.ma
 D:\MyFiles\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.application
 D:\MyFiles\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.exe
 D:\MyFiles\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.pdb
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\计时器Timer\obj\Debug\TimerUse.csprojAssemblyReference.cache
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.Form1.resources
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.Properties.Resources.resources
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\计时器Timer\obj\Debug\TimerUse.csproj.GenerateResource.cache
+E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\计时器Timer\obj\Debug\计时工具.exe.licenses

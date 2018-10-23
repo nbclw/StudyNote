@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuccessDemo", "SuccessDemo\SuccessDemo.csproj", "{E6F6C46C-24D8-4C0B-9221-B9D1EAAB5BD8}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseAutoClick", "MouseAutoClick\MouseAutoClick.csproj", "{1217FD6F-2625-4B6F-8345-CDC4F6937114}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{AEC23E88-2CFA-4C92-B46F-66DE3FEDB842}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathCells.WPF", "MathCells.WPF\MathCells.WPF.csproj", "{BCCDD18D-22CB-4AD7-9665-0E125CAB08BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{AEC23E88-2CFA-4C92-B46F-66DE3FEDB842}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC23E88-2CFA-4C92-B46F-66DE3FEDB842}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC23E88-2CFA-4C92-B46F-66DE3FEDB842}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCDD18D-22CB-4AD7-9665-0E125CAB08BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCDD18D-22CB-4AD7-9665-0E125CAB08BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCDD18D-22CB-4AD7-9665-0E125CAB08BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCDD18D-22CB-4AD7-9665-0E125CAB08BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E245B394-ACCE-46C3-86A7-E621DF9F3692}
 	EndGlobalSection
 EndGlobal
