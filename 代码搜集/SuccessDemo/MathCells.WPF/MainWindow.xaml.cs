@@ -213,6 +213,9 @@ namespace MathCells.WPF
             this.txtInter.IsEnabled = false;
 
             this.timer.Stop();
+            this.canvas.MouseLeftButtonDown += Canvas_MouseLeftButtonDown;
+            this.canvas.MouseLeftButtonUp += Canvas_MouseLeftButtonUp;
+            this.canvas.MouseLeave += Canvas_MouseLeave;
         }
 
         private void btnOver_Click(object sender, RoutedEventArgs e)

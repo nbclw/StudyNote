@@ -3,10 +3,3 @@ D:\MyFile\代码搜集\SuccessDemo\ConsoleApplication1\bin\Debug\ConsoleApplicat
 D:\MyFile\代码搜集\SuccessDemo\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 D:\MyFile\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 D:\MyFile\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojAssemblyReference.cache
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.csproj.CoreCompileInputs.cache
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-E:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

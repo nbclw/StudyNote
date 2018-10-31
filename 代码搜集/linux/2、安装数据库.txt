@@ -1,0 +1,52 @@
+1、将rpm包下载到本地，上传到服务器
+
+
+2、安装rpm源
+rpm -Uvh(-ivh) mysql57-community-release-el7-10.noarch.rpm
+
+
+
+3、安装mysql服务端
+yum install -y mysql-community-server
+
+4、启动
+service mysqld start 重启是restart
+
+5、修改密码
+首先获取临时密码 
+grep 'temporary password' /var/log/mysqld.log（如果之前安装过MySQL则这里可能会有多个密码，用最后一个，注意这个密码输入时是可以粘贴的）
+
+登录 
+mysql -uroot -p 输入上面找到的密码
+
+修改
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root123';
+会提示密码过于简单，用下面修改密码策略再改
+mysql> set global validate_password.policy=0;
+mysql> set global validate_password.length=1;
+
+6、授权其他机器登陆
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root（注：连接时的用户）'@'%（注：可连接主机ip）' IDENTIFIED BY'（注：账号密码）' WITH GRANT OPTION;
+mysql> FLUSH  PRIVILEGES;刷新
+
+mysql> use myaql;
+mysql> select user,host from users;查看
+mysql> update users set host='%' where host='localhost';修改
+mysql> FLUSH  PRIVILEGES;刷新
+
+
+7、调整防火墙 3306端口
+
+启动： systemctl start firewalld
+关闭： systemctl stop firewalld
+查看状态： systemctl status firewalld 
+开机禁用  ： systemctl disable firewalld
+开机启用  ： systemctl enable firewalld
+添加
+firewall-cmd --zone=public --add-port=80/tcp --permanent    （--permanent永久生效，没有此参数重启后失效）
+重新载入
+firewall-cmd --reload
+查看
+firewall-cmd --zone= public --query-port=80/tcp
+删除
+firewall-cmd --zone= public --remove-port=80/tcp --permanent
