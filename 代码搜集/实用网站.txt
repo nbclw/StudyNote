@@ -43,3 +43,4 @@ LayaAir功能介绍                                        https://ldc.layabox.c
 打造基于CentOS7的xfce最简工作环境                      https://blog.csdn.net/smstong/article/details/44802989#32-%E5%AE%89%E8%A3%85x-window-system
 ECS Centos7 安装MATE Desktop图形化桌面                 https://blog.csdn.net/aoshilang2249/article/details/51042657
 CentOS第一次安装MySQL的完整步骤                        https://www.cnblogs.com/silentdoer/articles/7258232.html
+CentOS7部署Nginx                                       https://www.cnblogs.com/wangyulong/p/7350189.html
