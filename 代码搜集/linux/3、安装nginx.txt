@@ -1,0 +1,54 @@
+一、安装依赖
+
+1 SSL功能需要openssl库，下载地址：http://www.openssl.org/    yum install openssl
+2 gzip模块需要zlib库，下载地址：http://www.zlib.net/         yum install zlib
+3 rewrite模块需要pcre库，下载地址：http://www.pcre.org/      yum install pcre
+
+二、安装Nginx依赖项和Nginx
+安装rpm
+rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+安装
+yum install nginx
+启动
+service nginx start    systemctl start nginx.service
+设置开机启动
+systemctl enable nginx.service
+
+输入IP，可以nginx的欢迎页面，表明nginx web服务器已经成功安装
+或者
+curl http://127.0.0.1
+
+三、配置
+允许 HTTP 和 HTTPS 通信(貌似不重要)
+firewall-cmd --permanent --zone=public --add-service=https
+firewall-cmd --permanent --zone=public --add-service=https
+
+vi /etc/nginx/conf.d/default.conf
+更改或添加nginx的转发端口文件，conf.f文件夹下的文件可为多个，分别对应不同的端口转发，在/etc/nginx/nginx.conf中有引用的代码；其内容为
+server {
+listen 8081;#访问的端口
+location / {
+proxy_pass http://localhost:5000;#转发的端口，自己的网站就可以
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Host $http_host;
+proxy_cache_bypass $http_upgrade;
+}
+
+
+service nginx restart
+
+四、错误
+502错误
+有可能是因为SELinux保护机制所导致
+解决方法一：关闭SELinux。
+输入：sestatus,如果SELinux status: enabled ，表示开启，输入vi /etc/selinux/config 修改配置：SELINUX=disabled。
+解决方法二：CentOS: 将NGINX加到SELinux的允许名单
+yum install policycoreutils-python
+cat /var/log/audit/audit.log | grep nginx | grep denied | audit2allow -M mynginx
+semodule -i mynginx.pp
+//然后重启CentOS
+
+页面跳转到https://localhost:5001
+原因：ASP.NET Core Web应用默认都会调用HTTPS重定向中间件（UseHttpsRedirection），而我们的Centos上没有安装HTTPS证书
+解决方法：注释掉，重新编译运行
