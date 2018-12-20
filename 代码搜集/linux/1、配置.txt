@@ -20,6 +20,8 @@ ping -c 4 www.baidu.com验证是否能上外网
 yum install epel-release                      安装额外包yum源（extra package for Enterprise Linux）
 yum install wget                              安装wget
 
+yum install  lrzsz                              方便xshell上传文件（rz上传 sz下载：rz -y）
+
 yum install net-tools 安不安装都可以
 
 
