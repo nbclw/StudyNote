@@ -1,4 +1,6 @@
-﻿Web 通信 之 长连接、长轮询（long polling）             http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html
+﻿DMM等十一区网站代理 — 永久免费                        http://www.crystalacg.com/ 
+
+Web 通信 之 长连接、长轮询（long polling）             http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html
 DevExpress GridControl使用方法                         http://www.cnblogs.com/zeroone/p/3525423.html   
 什么是闭包(Closure)？                                  http://kb.cnblogs.com/page/111780/
 进程与线程的简单理解				       http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html
