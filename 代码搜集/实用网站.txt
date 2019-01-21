@@ -46,3 +46,4 @@ LayaAir功能介绍                                        https://ldc.layabox.c
 ECS Centos7 安装MATE Desktop图形化桌面                 https://blog.csdn.net/aoshilang2249/article/details/51042657
 CentOS第一次安装MySQL的完整步骤                        https://www.cnblogs.com/silentdoer/articles/7258232.html
 CentOS7部署Nginx                                       https://www.cnblogs.com/wangyulong/p/7350189.html
+十大经典排序算法动画与解析，看我就够了！（配代码完全版 https://www.cnblogs.com/fivestudy/p/10212306.html
