@@ -47,3 +47,5 @@ ECS Centos7 安装MATE Desktop图形化桌面                 https://blog.csdn.
 CentOS第一次安装MySQL的完整步骤                        https://www.cnblogs.com/silentdoer/articles/7258232.html
 CentOS7部署Nginx                                       https://www.cnblogs.com/wangyulong/p/7350189.html
 十大经典排序算法动画与解析，看我就够了！（配代码完全版 https://www.cnblogs.com/fivestudy/p/10212306.html
+浅析C# Dictionary实现原理                              https://www.cnblogs.com/InCerry/p/10325290.html
+只有程序员才能读懂的西游记(有关计算机网络协议的故事)   https://www.cnblogs.com/popsuper1982/p/10329438.html
