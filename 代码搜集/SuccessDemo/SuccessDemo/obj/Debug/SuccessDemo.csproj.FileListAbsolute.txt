@@ -4,3 +4,10 @@ D:\MyFiles\代码搜集\SuccessDemo\SuccessDemo\bin\Debug\SuccessDemo.exe
 D:\MyFiles\代码搜集\SuccessDemo\SuccessDemo\bin\Debug\SuccessDemo.pdb
 D:\MyFiles\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.exe
 D:\MyFiles\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.pdb
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\bin\Debug\SuccessDemo.exe.config
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\bin\Debug\SuccessDemo.exe
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\bin\Debug\SuccessDemo.pdb
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.csprojAssemblyReference.cache
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.csproj.CoreCompileInputs.cache
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.exe
+D:\clw\MyCode\StudyNote\代码搜集\SuccessDemo\SuccessDemo\obj\Debug\SuccessDemo.pdb
